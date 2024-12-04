@@ -13,6 +13,14 @@ const blogCollection = defineCollection({
     }),
 });
 
+
+const servicesCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      
+    })
+})
+
 export const collections = {
   blog: blogCollection,
 };
