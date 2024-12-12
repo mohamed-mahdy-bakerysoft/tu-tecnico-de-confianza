@@ -5,7 +5,7 @@ interface Props {
 
 const navigationItems = [
   { name: 'Inicio', url: '/' },
-  { name: 'Agenda tu servicio', url: '/blog/' },
+  { name: 'Agenda tu servicio', url: '/services/BookService/' },
 ];
 
 const socialIcons = [
@@ -61,9 +61,8 @@ const { pageTitle } = Astro.props;
     </ul>
   </nav>
   <nav class='md:hidden flex'>
-    <h2 class='hidden'>Mobile Navigation</h2>
     <ul>
-      <li><a href='/blog/'>Blog</a></li>
+      <li><a href='/services/'>Nuestros Servicios</a></li>
     </ul>
   </nav>
 </header>
