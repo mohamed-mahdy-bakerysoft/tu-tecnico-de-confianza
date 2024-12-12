@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/Default.astro';
+import ServicesList from '@components/services/ServicesList.astro';
+
+const service = await getCollection('services').then((collection) =>
+  collection.reverse()
+);
+---
+
+<Layout
+  title='Todos nuestros servicios'
+  description='acá encontrarás mas información acerca de todos los servicios que tenemos para dejar tu pc tocho'
+  pageTitle='Servicios'
+>
+  <main class='bg-green p-6'>
+    <ServicesList services={service} />
+  </main>
+</Layout>

@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SummaryCard from '../generic/SummaryCard.astro';
+import { Button } from '@eliancodes/brutal-ui';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+}
+
+const { service } = Astro.props;
+---
+  
+<SummaryCard
+  title={service.data.title}
+  imgAlt={service.data.title}
+  imgSrc={service.data.imgUrl}
+  description={service.data.description}
+>
+  <div class='flex justify-end my-4'>
+    <Button href={`/blog/${service.slug}/`}>Leer más &rarr;</Button>
+  </div>
+</SummaryCard>

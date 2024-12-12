@@ -13,17 +13,18 @@ const blogCollection = defineCollection({
     }),
 });
 
-const servicesCollection = defineCollection({
+const services = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      descrition: z.string(),
-      price: z.string(),
+      description: z.string(),
+      price: z.number(),
       duration: z.string(),
+      imgUrl: image(),
     }),
 });
 
 export const collections = {
   blog: blogCollection,
-  services: servicesCollection,
+  services,
 };

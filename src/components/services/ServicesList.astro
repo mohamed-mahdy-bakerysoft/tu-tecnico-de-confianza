@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ServicesSummaryCard from './ServicesSummaryCard.astro';
+
+interface Props {
+  services: CollectionEntry<'services'>[];
+}
+
+const { services } = Astro.props;
+---
+
+<ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+  {
+    services.map((service) => {
+      return (
+        <li>
+          <ServicesSummaryCard service={service} />
+        </li>
+      );
+    })
+  }
+</ul>
