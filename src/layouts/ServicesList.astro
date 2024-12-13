@@ -1,7 +1,8 @@
 ---
-import Layout from './Default.astro';
-import ServicesSideBar from '@components/services/ServicesSideBar.astro';
-import ServicesContent from '@components/services/ServicesContent.astro';
+import Layout from "./Default.astro";
+import ServicesSideBar from "@components/services/ServicesSideBar.astro";
+import ServicesContent from "@components/services/ServicesContent.astro";
+import FeaturedServices from "@components/generic/FeaturedServices.astro";
 
 const ogImage = new URL(`/v1/generate/og/${Astro.params.slug}.png`, Astro.url);
 
@@ -14,10 +15,13 @@ const { title, description } = content;
   description={description as string}
   ogImage={ogImage}
 >
-  <main class='p-6 lg:grid lg:grid-cols-3 flex justify-center'>
+  <main class="p-6 lg:grid lg:grid-cols-3 flex justify-center">
     <ServicesSideBar headings={headings} />
     <ServicesContent content={content}>
       <slot />
     </ServicesContent>
   </main>
+  <section class="p-6">
+    <FeaturedServices count={6} />
+  </section>
 </Layout>

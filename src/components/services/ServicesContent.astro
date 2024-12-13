@@ -4,14 +4,26 @@ interface Props {
 }
 
 const { content } = Astro.props;
+
+const price = content.price;
+const formatter = new Intl.NumberFormat("es-CO", {
+  style: "currency",
+  currency: "COP",
+});
+const formattedPrice = formatter.format(price);
 ---
 
-<article class='prose-slate w-sm md:w-prose md:prose poppins'>
-  <a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
-  <p class='text-slate text-sm md:text-base'>
-    Published on {content.pubDate} by {content.author}
+<article class="prose-slate w-sm md:w-prose md:prose poppins">
+  <a href="/services/" title="Back to services"
+    >&larr; Volver a todos los servicios</a
+  >
+  <h1>{content.title}</h1>
+  <p class="text-slate text-sm md:text-base">
+    Duración del servicio: {content.duration}
   </p>
+  <p class="text-slate">Precio: {formattedPrice}</p>
   <slot />
-  <p class='text-slate'>Written by {content.author}</p>
-  <a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
+  <a href="/services/" title="Back to services"
+    >&larr; Volver a todos los servicios</a
+  >
 </article>
